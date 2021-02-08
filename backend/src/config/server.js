@@ -8,6 +8,7 @@ server.use(bodyParser.json());
 server.use(allowCors);
 
 const port = 3003;
+
 server.listen(port, function () {
 	console.log(`BACKEND is running on port ${port}.`);
 });
