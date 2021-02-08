@@ -1,14 +1,16 @@
 const mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
 
-const DB_USER = 'b3_user';
-const DB_PASS = '@dmA87782930';
-const DB_NAME = 'todo_app_cod3r';
-const DB_HOST = 'cluster0.ntlsu.mongodb.net';
+const dotenv = require('dotenv');
+dotenv.config();
+
+const DB_NAME = process.env.DB_NAME;
+const DB_USER = process.env.DB_USER;
+const DB_PASS = process.env.DB_PASS;
+const DB_HOST = process.env.DB_HOST;
 const DB_URL = `mongodb+srv://${DB_USER}:${DB_PASS}@${DB_HOST}/${DB_NAME}`;
+
 module.exports = mongoose.connect(DB_URL, {
 	useNewUrlParser: true,
 	useUnifiedTopology: true,
 });
-
-// module.exports = mongoose.connect('mongodb://localhost/todo');
